@@ -16,9 +16,37 @@
     <link rel="icon" href="./assets/chheda-monogram.svg" type="image/svg+xml" />
     <link rel="preload" href="./assets/fonts/CormorantInfant-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="./assets/fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./assets/intro-monogram.png" as="image" />
+    <script>
+      // The page stays usable if JavaScript or the animation library fails.
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.dataset.intro = 'pending';
+        window.chhedaIntroTimeout = window.setTimeout(function () {
+          document.documentElement.removeAttribute('data-intro');
+          document.querySelector('.invitation')?.removeAttribute('inert');
+          window.dispatchEvent(new Event('chheda:intro-timeout'));
+        }, 4500);
+      }
+    </script>
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./assets/vendor/gsap.min.js" defer></script>
+    <script src="./intro.js" defer></script>
   </head>
   <body>
+    <section class="intro" aria-label="Welcome to Chheda Jewellers">
+      <div class="intro__veil" aria-hidden="true"></div>
+      <div class="intro__stage">
+        <div class="intro__mark">
+          <img class="intro__monogram" src="./assets/intro-monogram.png" alt="Chheda Jewellers monogram" width="643" height="658" fetchpriority="high" />
+        </div>
+        <div class="intro__copy" aria-hidden="true">
+          <p>CHHEDA JEWELLERS</p>
+          <span>A warm welcome awaits</span>
+        </div>
+      </div>
+      <button class="intro__skip" type="button">Skip intro <span aria-hidden="true">↗</span></button>
+    </section>
+
     <div class="decoration" aria-hidden="true">
       <div class="page-frame"></div>
       <div class="ornament ornament--left"></div>
@@ -34,7 +62,7 @@
 
       <section class="welcome" aria-labelledby="welcome-title">
         <p class="eyebrow">AN INVITATION TO VISIT</p>
-        <h1 id="welcome-title">We look forward<br />to <em>your visit.</em></h1>
+        <h1 id="welcome-title" tabindex="-1">We look forward<br />to <em>your visit.</em></h1>
         <p class="welcome__note">Discover something special, in person.</p>
 
         <nav class="stores" aria-label="Choose a Chheda Jewellers store">

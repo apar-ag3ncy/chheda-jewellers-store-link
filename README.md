@@ -1,6 +1,12 @@
 # Chheda Jewellers - Store Visit-Link
 
-A standalone store locator with the original Chheda Jewellers logo, green and gold brand palette, locally hosted brand fonts, and two accessible Google Maps links. Responsive, keyboard accessible, and respectful of reduced-motion preferences. No runtime dependencies, tracking, or JavaScript required by the page.
+A standalone store locator with the original Chheda Jewellers logo, green and gold brand palette, locally hosted brand fonts, and two accessible Google Maps links. A brief monogram rotation opens the page, then lands in the header as the store links appear. Responsive, keyboard accessible, and respectful of reduced-motion preferences. The store links remain usable without JavaScript.
+
+## Intro animation
+
+The owner-supplied transparent monogram is preserved in `public/assets/intro-monogram.png`. `public/intro.js` uses a locally hosted GSAP 3.15.0 timeline for the approximately 2.7-second opening. Skip intro or Escape reveals the page immediately; reduced-motion users see the page directly. Failed animation loading reveals the page automatically, and resizing or leaving the tab finishes the intro. The existing store destinations are unchanged.
+
+GSAP's copyright and [standard license](https://gsap.com/standard-license/) are retained in `public/assets/vendor/gsap.min.js`. No external animation CDN or install step is required.
 
 ## Preview
 
