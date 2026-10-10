@@ -113,7 +113,7 @@ body {
 .ornament--left { left: -20%; top: 3%; transform: rotate(-15deg); }
 .ornament--right { right: -20%; bottom: 3%; transform: rotate(15deg); }
 
-.invitation { width: min(100%, 500px); margin-inline: auto; text-align: center; }
+.invitation { width: min(100%, 440px); margin-inline: auto; text-align: center; }
 .brand__logo { display: block; width: min(100%, 356px); height: auto; margin-inline: auto; }
 
 .flourish { display: flex; align-items: center; justify-content: center; gap: 13px; margin: 30px 0 28px; }
@@ -121,10 +121,8 @@ body {
 .flourish span:last-child { transform: rotate(180deg); }
 .flourish i { width: 5px; height: 5px; border: 1px solid var(--gold); transform: rotate(45deg); }
 
-.eyebrow { margin: 0 0 16px; color: var(--gold); font-size: 10px; font-weight: 500; letter-spacing: 0.26em; line-height: 1.6; }
-h1 { margin: 0; font: 400 clamp(44px, 5vw, 62px) / 0.99 var(--serif); letter-spacing: -0.035em; }
+h1 { margin: 0; font: 400 clamp(40px, 5vw, 56px) / 1.08 var(--serif); letter-spacing: -0.035em; }
 h1 em { color: var(--gold); font-weight: 400; }
-.welcome__note { margin: 20px 0 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
 
 .stores { display: grid; gap: 18px; margin: 32px 0 0; }
 
@@ -189,11 +187,9 @@ h1 em { color: var(--gold); font-weight: 400; }
 
 .store-link:active { transform: translateY(3px); box-shadow: inset 0 2px 4px #81572c26, 0 1px 0 #926b3e, 0 4px 10px #001a1340; transition-duration: 70ms; }
 .store-link:active::before { opacity: 0; }
-.map-note { margin: 20px 0 0; color: var(--muted); font-size: 10px; line-height: 1.8; }
 
 .signature { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 48px; }
-.signature p { margin: 0; color: #c0b59f; font-size: 8px; letter-spacing: 0.17em; line-height: 1.8; }
-.signature b { margin: 0 5px; font-weight: 400; }
+.signature p { margin: 0; color: #c0b59f; font-size: 9px; letter-spacing: 0.28em; line-height: 1.8; }
 .signature > span { width: 20px; height: 1px; background: #d9b17d55; }
 
 .intro { display: none; }
@@ -219,8 +215,7 @@ html[data-intro="pending"] .intro {
 .intro__mark { width: clamp(200px, 26vw, 286px); aspect-ratio: 643 / 658; will-change: transform; }
 .intro__monogram { display: block; width: 100%; height: auto; transform-origin: 47.6% 50%; filter: brightness(1.48) saturate(0.72); }
 .intro__copy { text-align: center; }
-.intro__copy p { margin: 0 0 12px; color: var(--gold); font-size: 12px; letter-spacing: 0.28em; line-height: 1.5; }
-.intro__copy span { color: var(--muted); font: italic 24px / 1.2 var(--serif); }
+.intro__copy p { margin: 0; color: var(--gold); font-size: 12px; letter-spacing: 0.28em; line-height: 1.5; }
 .intro__skip {
   position: absolute;
   bottom: max(30px, env(safe-area-inset-bottom));
@@ -243,29 +238,29 @@ html[data-intro="pending"] .intro {
 #welcome-title:focus { outline: none; }
 
 @media (max-width: 600px) {
-  body { padding: 48px 29px 38px; }
+  body {
+    padding: max(32px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(32px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+  }
+  .invitation { width: min(100%, 380px); }
   .page-frame { inset: 12px; }
   .page-frame::before, .page-frame::after { width: 24px; height: 24px; }
-  .brand__logo { width: min(100%, 288px); }
-  .flourish { margin: 27px 0 24px; }
-  .eyebrow { font-size: 8px; letter-spacing: 0.23em; margin-bottom: 17px; }
-  h1 { font-size: clamp(40px, 11.8vw, 56px); }
-  .welcome__note { font-size: 10px; margin-top: 17px; }
-  .stores { margin-top: 28px; gap: 16px; }
-  .store-link { grid-template-columns: 38px minmax(0, 1fr) 36px; gap: 12px; padding: 18px 16px; min-height: 96px; }
+  .brand__logo { width: min(100%, 280px); }
+  .flourish { margin: 26px 0; }
+  .flourish span { width: 42px; }
+  h1 { font-size: clamp(40px, 11.5vw, 48px); }
+  .stores { margin-top: 28px; gap: 18px; }
+  .store-link { grid-template-columns: 38px minmax(0, 1fr) 36px; gap: 12px; padding: 18px 16px; min-height: 94px; touch-action: manipulation; }
   .store-link__pin { width: 38px; height: 38px; }
   .store-link__pin svg { width: 19px; height: 19px; }
   .store-link__name { font-size: 23px; }
-  .store-link__action { font-size: 9px; letter-spacing: 0.1em; }
+  .store-link__action { font-size: 10px; letter-spacing: 0.08em; }
   .store-link__arrow { width: 36px; height: 36px; }
   .store-link__arrow svg { width: 18px; height: 18px; }
-  .map-note { font-size: 9px; margin-top: 18px; }
-  .signature { margin-top: 34px; gap: 10px; }
-  .signature p { font-size: 7px; letter-spacing: 0.13em; }
-  .signature > span { width: 16px; }
-  .ornament { width: 360px; opacity: 0.035; }
-  .ornament--left { left: -270px; top: 4%; }
-  .ornament--right { right: -270px; bottom: 4%; }
+  .signature { margin-top: 30px; gap: 12px; }
+  .signature > span { width: 22px; }
+  .ornament { width: 340px; opacity: 0.045; }
+  .ornament--left { left: -245px; top: 3%; }
+  .ornament--right { right: -245px; bottom: 3%; }
   .intro__veil::after { inset: 12px; }
   .intro__stage { gap: 20px; }
   .intro__copy p { font-size: 10px; }
@@ -273,13 +268,20 @@ html[data-intro="pending"] .intro {
 }
 
 @media (max-width: 350px) {
-  body { padding-inline: 25px; }
+  .brand__logo { width: min(100%, 250px); }
   .store-link { padding-inline: 12px; gap: 9px; grid-template-columns: 32px minmax(0, 1fr) 28px; }
   .store-link__pin { width: 32px; height: 32px; }
   .store-link__arrow { width: 28px; height: 28px; }
   .store-link__name { font-size: 20px; }
-  .store-link__action { font-size: 8px; letter-spacing: 0.07em; }
-  .signature > span { display: none; }
+  .store-link__action { font-size: 9px; letter-spacing: 0.07em; }
+}
+
+@media (max-width: 600px) and (max-height: 650px) {
+  .brand__logo { width: min(100%, 240px); }
+  .flourish { margin-block: 20px; }
+  .stores { margin-top: 24px; }
+  .store-link { min-height: 86px; padding-block: 14px; }
+  .signature { margin-top: 26px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
