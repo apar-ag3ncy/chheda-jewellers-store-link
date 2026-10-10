@@ -1,0 +1,14 @@
+{
+  "name": "chheda-jewellers-store-link",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chheda Jewellers - Store Visit-Link",
+  "type": "module",
+  "scripts": {
+    "dev": "node preview.mjs",
+    "start": "node preview.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

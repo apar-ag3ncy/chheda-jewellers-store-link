@@ -1,0 +1,234 @@
+@font-face {
+  font-family: "Cormorant Infant";
+  src: url("./assets/fonts/CormorantInfant-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant Infant";
+  src: url("./assets/fonts/CormorantInfant-Italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("./assets/fonts/Montserrat-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("./assets/fonts/Montserrat-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --green: #0b3a2d;
+  --green-deep: #06241b;
+  --gold: #f0cfaa;
+  --cream: #fcf2e4;
+  --muted: #becac0;
+  --serif: "Cormorant Infant", Georgia, serif;
+  --sans: Montserrat, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  min-width: 280px;
+  min-height: 100%;
+  background: var(--green-deep);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0;
+  padding: 66px 28px 54px;
+  overflow-x: clip;
+  color: var(--cream);
+  font-family: var(--sans);
+  background:
+    radial-gradient(ellipse at 50% 28%, #164b3b 0%, transparent 62%),
+    linear-gradient(135deg, #0b3a2d, #06291f);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { color: var(--green-deep); background: var(--gold); }
+
+.decoration {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.page-frame {
+  position: absolute;
+  z-index: -1;
+  inset: 20px;
+  border: 1px solid #d5ac7540;
+  pointer-events: none;
+}
+
+.page-frame::before,
+.page-frame::after {
+  position: absolute;
+  content: "";
+  width: 34px;
+  height: 34px;
+  border-color: #e4be8a;
+  border-style: solid;
+  pointer-events: none;
+}
+
+.page-frame::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.page-frame::after { right: -1px; bottom: -1px; border-width: 0 1px 1px 0; }
+
+.ornament {
+  position: absolute;
+  z-index: -1;
+  width: clamp(400px, 44vw, 720px);
+  aspect-ratio: 1;
+  opacity: 0.048;
+  background: url("./assets/chheda-monogram.svg") center / contain no-repeat;
+  pointer-events: none;
+}
+
+.ornament--left { left: -20%; top: 3%; transform: rotate(-15deg); }
+.ornament--right { right: -20%; bottom: 3%; transform: rotate(15deg); }
+
+.invitation { width: min(100%, 500px); margin-inline: auto; text-align: center; }
+.brand__logo { display: block; width: min(100%, 356px); height: auto; margin-inline: auto; }
+
+.flourish { display: flex; align-items: center; justify-content: center; gap: 13px; margin: 30px 0 28px; }
+.flourish span { width: 58px; height: 1px; background: linear-gradient(90deg, transparent, #d9b17d99); }
+.flourish span:last-child { transform: rotate(180deg); }
+.flourish i { width: 5px; height: 5px; border: 1px solid var(--gold); transform: rotate(45deg); }
+
+.eyebrow { margin: 0 0 16px; color: var(--gold); font-size: 10px; font-weight: 500; letter-spacing: 0.26em; line-height: 1.6; }
+h1 { margin: 0; font: 400 clamp(44px, 5vw, 62px) / 0.99 var(--serif); letter-spacing: -0.035em; }
+h1 em { color: var(--gold); font-weight: 400; }
+.welcome__note { margin: 20px 0 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+
+.stores { display: grid; gap: 14px; margin: 32px 0 0; }
+
+.store-link {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 47px 1fr 42px;
+  align-items: center;
+  gap: 20px;
+  min-height: 100px;
+  padding: 18px 24px;
+  overflow: hidden;
+  border: 1px solid #d8b1858c;
+  border-radius: 7px;
+  background: linear-gradient(115deg, #dab5860c, #dab58603 50%, #dab5860c);
+  box-shadow: inset 0 1px 0 #ffe2b90d, 0 6px 24px #001a131f;
+  color: var(--gold);
+  text-align: left;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
+}
+
+.store-link::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: linear-gradient(115deg, #f4d8b026, transparent 65%);
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.store-link__pin { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid #e7c29536; border-radius: 50%; }
+.store-link__pin svg { width: 21px; height: 21px; }
+.store-link__copy { display: grid; gap: 6px; }
+.store-link__name { color: var(--cream); font: 400 31px / 1 var(--serif); letter-spacing: -0.015em; }
+.store-link__action { font-size: 9px; line-height: 1.6; font-weight: 500; letter-spacing: 0.19em; }
+.store-link__arrow { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #eed0a613; transition: background-color 220ms ease, color 220ms ease; }
+.store-link__arrow svg { width: 19px; height: 19px; transition: transform 220ms ease; }
+
+.store-link:focus-visible { outline: 2px solid #ffe5c1; outline-offset: 5px; background-color: #28543f; }
+
+@media (hover: hover) {
+  .store-link:hover { transform: translateY(-2px); border-color: #f0cfaa; box-shadow: inset 0 1px 0 #ffe2b922, 0 10px 30px #001a1340; }
+  .store-link:hover::before { opacity: 1; }
+  .store-link:hover .store-link__arrow { color: var(--green-deep); background: var(--gold); }
+  .store-link:hover .store-link__arrow svg { transform: translate(1px, -1px); }
+}
+
+.store-link:active { transform: scale(0.985); background-color: #315841; }
+.map-note { margin: 20px 0 0; color: var(--muted); font-size: 10px; line-height: 1.8; }
+
+.signature { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 48px; }
+.signature p { margin: 0; color: #c0b59f; font-size: 8px; letter-spacing: 0.17em; line-height: 1.8; }
+.signature b { margin: 0 5px; font-weight: 400; }
+.signature > span { width: 20px; height: 1px; background: #d9b17d55; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .invitation { animation: arrive 650ms ease-out both; }
+  @keyframes arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}
+
+@media (max-width: 600px) {
+  body { padding: 48px 29px 38px; }
+  .page-frame { inset: 12px; }
+  .page-frame::before, .page-frame::after { width: 24px; height: 24px; }
+  .brand__logo { width: min(100%, 288px); }
+  .flourish { margin: 27px 0 24px; }
+  .eyebrow { font-size: 8px; letter-spacing: 0.23em; margin-bottom: 17px; }
+  h1 { font-size: clamp(40px, 11.8vw, 56px); }
+  .welcome__note { font-size: 10px; margin-top: 17px; }
+  .stores { margin-top: 28px; gap: 12px; }
+  .store-link { grid-template-columns: 38px 1fr 32px; gap: 14px; padding: 17px 16px; min-height: 90px; }
+  .store-link__pin { width: 38px; height: 38px; }
+  .store-link__pin svg { width: 19px; height: 19px; }
+  .store-link__name { font-size: 28px; }
+  .store-link__action { font-size: 8px; letter-spacing: 0.13em; }
+  .store-link__arrow { width: 32px; height: 32px; }
+  .store-link__arrow svg { width: 17px; height: 17px; }
+  .map-note { font-size: 9px; margin-top: 18px; }
+  .signature { margin-top: 34px; gap: 10px; }
+  .signature p { font-size: 7px; letter-spacing: 0.13em; }
+  .signature > span { width: 16px; }
+  .ornament { width: 360px; opacity: 0.035; }
+  .ornament--left { left: -270px; top: 4%; }
+  .ornament--right { right: -270px; bottom: 4%; }
+}
+
+@media (max-width: 350px) {
+  body { padding-inline: 25px; }
+  .store-link { padding-inline: 12px; gap: 10px; grid-template-columns: 32px 1fr 28px; }
+  .store-link__pin { width: 32px; height: 32px; }
+  .store-link__arrow { width: 28px; height: 28px; }
+  .store-link__name { font-size: 26px; }
+  .signature > span { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+@media (forced-colors: active) {
+  .store-link { border: 1px solid ButtonText; }
+  .store-link:focus-visible { outline: 2px solid Highlight; }
+}
