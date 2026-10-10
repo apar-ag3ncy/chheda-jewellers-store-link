@@ -14,9 +14,11 @@ These settings follow [Vercel's static-site build configuration](https://vercel.
 
 ## Store links
 
-- Vile Parle: https://maps.app.goo.gl/8me6s99iWbzyr16g8
-- Ghatkopar: https://maps.app.goo.gl/XEFAvPCUkt5V5tUu7
+- Vile Parle: https://www.google.com/maps/search/?api=1&query=Chheda+Jewellers+Trinity+Square+Vile+Parle+East
+- Ghatkopar: https://www.google.com/maps/search/?api=1&query=Chheda+Jewellers+Vardhaman+Business+Bay+Vallabh+Baug+Lane+Ghatkopar+East
+
+The buttons use [Google's universal Maps URLs](https://developers.google.com/maps/documentation/urls/get-started), which open in desktop browsers and supported mobile apps. They avoid the `maps.app.goo.gl` redirect host, which timed out in the desktop browser. Both direct searches were verified to open the matching Chheda store and address in Chrome.
 
 To change a destination, edit the corresponding `href` in `public/index.html`. Styling is in `public/styles.css`. Brand assets and fonts are in `public/assets`.
 
-The links were supplied by the site owner. This page opens Google Maps in a new tab; Google Maps handles directions and navigation.
+Original owner-supplied links, retained for reference: Vile Parle `https://maps.app.goo.gl/8me6s99iWbzyr16g8`, Ghatkopar `https://maps.app.goo.gl/XEFAvPCUkt5V5tUu7`. This page opens Google Maps in a new tab; Google Maps handles directions and navigation.
