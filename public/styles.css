@@ -126,27 +126,29 @@ h1 { margin: 0; font: 400 clamp(44px, 5vw, 62px) / 0.99 var(--serif); letter-spa
 h1 em { color: var(--gold); font-weight: 400; }
 .welcome__note { margin: 20px 0 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
 
-.stores { display: grid; gap: 14px; margin: 32px 0 0; }
+.stores { display: grid; gap: 18px; margin: 32px 0 0; }
 
 .store-link {
   position: relative;
   isolation: isolate;
   display: grid;
-  grid-template-columns: 47px 1fr 42px;
+  grid-template-columns: 46px minmax(0, 1fr) 44px;
   align-items: center;
   gap: 20px;
-  min-height: 100px;
-  padding: 18px 24px;
+  min-height: 104px;
+  padding: 20px 24px;
   overflow: hidden;
-  border: 1px solid #d8b1858c;
-  border-radius: 7px;
-  background: linear-gradient(115deg, #dab5860c, #dab58603 50%, #dab5860c);
-  box-shadow: inset 0 1px 0 #ffe2b90d, 0 6px 24px #001a131f;
-  color: var(--gold);
+  border: 1px solid #f8deb4;
+  border-radius: 12px;
+  background: linear-gradient(115deg, #f5dfbc 0%, #ebca98 48%, #dcb27a 100%);
+  box-shadow: inset 0 1px 0 #fff5de, inset 0 -1px 0 #b78a50,
+    0 4px 0 #926b3e, 0 10px 22px #001a1366;
+  color: #123c2e;
   text-align: left;
   text-decoration: none;
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .store-link::before {
@@ -154,29 +156,39 @@ h1 em { color: var(--gold); font-weight: 400; }
   z-index: -1;
   inset: 0;
   content: "";
-  background: linear-gradient(115deg, #f4d8b026, transparent 65%);
+  background: linear-gradient(115deg, #fff8e480, #fff8e420);
   opacity: 0;
-  transition: opacity 220ms ease;
+  transition: opacity 180ms ease;
+  pointer-events: none;
 }
 
-.store-link__pin { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid #e7c29536; border-radius: 50%; }
-.store-link__pin svg { width: 21px; height: 21px; }
-.store-link__copy { display: grid; gap: 6px; }
-.store-link__name { color: var(--cream); font: 400 31px / 1 var(--serif); letter-spacing: -0.015em; }
-.store-link__action { font-size: 9px; line-height: 1.6; font-weight: 500; letter-spacing: 0.19em; }
-.store-link__arrow { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #eed0a613; transition: background-color 220ms ease, color 220ms ease; }
-.store-link__arrow svg { width: 19px; height: 19px; transition: transform 220ms ease; }
+.store-link::after {
+  position: absolute;
+  inset: 4px;
+  content: "";
+  border: 1px solid #6d52251c;
+  border-radius: 8px;
+  pointer-events: none;
+}
 
-.store-link:focus-visible { outline: 2px solid #ffe5c1; outline-offset: 5px; background-color: #28543f; }
+.store-link__pin { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid #21452e33; border-radius: 50%; background: #fff8e42e; }
+.store-link__pin svg { width: 23px; height: 23px; stroke-width: 1.6; }
+.store-link__copy { display: grid; gap: 7px; }
+.store-link__name { color: #0b3326; font: 400 33px / 1 var(--serif); letter-spacing: -0.015em; }
+.store-link__action { font-size: 10px; line-height: 1.6; font-weight: 500; letter-spacing: 0.16em; }
+.store-link__arrow { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #082a20; border-radius: 8px; color: #f8dfb7; background: #123c2e; box-shadow: inset 0 1px 0 #ffffff1c; }
+.store-link__arrow svg { width: 20px; height: 20px; stroke-width: 1.7; transition: transform 180ms ease; }
+
+.store-link:focus-visible { outline: 2px solid #ffe5c1; outline-offset: 7px; }
 
 @media (hover: hover) {
-  .store-link:hover { transform: translateY(-2px); border-color: #f0cfaa; box-shadow: inset 0 1px 0 #ffe2b922, 0 10px 30px #001a1340; }
+  .store-link:hover { transform: translateY(-3px); box-shadow: inset 0 1px 0 #fff5de, inset 0 -1px 0 #b78a50, 0 7px 0 #926b3e, 0 16px 28px #001a1373; }
   .store-link:hover::before { opacity: 1; }
-  .store-link:hover .store-link__arrow { color: var(--green-deep); background: var(--gold); }
-  .store-link:hover .store-link__arrow svg { transform: translate(1px, -1px); }
+  .store-link:hover .store-link__arrow svg { transform: translate(2px, -2px); }
 }
 
-.store-link:active { transform: scale(0.985); background-color: #315841; }
+.store-link:active { transform: translateY(3px); box-shadow: inset 0 2px 4px #81572c26, 0 1px 0 #926b3e, 0 4px 10px #001a1340; transition-duration: 70ms; }
+.store-link:active::before { opacity: 0; }
 .map-note { margin: 20px 0 0; color: var(--muted); font-size: 10px; line-height: 1.8; }
 
 .signature { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 48px; }
@@ -239,14 +251,14 @@ html[data-intro="pending"] .intro {
   .eyebrow { font-size: 8px; letter-spacing: 0.23em; margin-bottom: 17px; }
   h1 { font-size: clamp(40px, 11.8vw, 56px); }
   .welcome__note { font-size: 10px; margin-top: 17px; }
-  .stores { margin-top: 28px; gap: 12px; }
-  .store-link { grid-template-columns: 38px 1fr 32px; gap: 14px; padding: 17px 16px; min-height: 90px; }
+  .stores { margin-top: 28px; gap: 16px; }
+  .store-link { grid-template-columns: 38px minmax(0, 1fr) 36px; gap: 12px; padding: 18px 16px; min-height: 96px; }
   .store-link__pin { width: 38px; height: 38px; }
   .store-link__pin svg { width: 19px; height: 19px; }
-  .store-link__name { font-size: 28px; }
-  .store-link__action { font-size: 8px; letter-spacing: 0.13em; }
-  .store-link__arrow { width: 32px; height: 32px; }
-  .store-link__arrow svg { width: 17px; height: 17px; }
+  .store-link__name { font-size: 29px; }
+  .store-link__action { font-size: 9px; letter-spacing: 0.1em; }
+  .store-link__arrow { width: 36px; height: 36px; }
+  .store-link__arrow svg { width: 18px; height: 18px; }
   .map-note { font-size: 9px; margin-top: 18px; }
   .signature { margin-top: 34px; gap: 10px; }
   .signature p { font-size: 7px; letter-spacing: 0.13em; }
@@ -262,10 +274,11 @@ html[data-intro="pending"] .intro {
 
 @media (max-width: 350px) {
   body { padding-inline: 25px; }
-  .store-link { padding-inline: 12px; gap: 10px; grid-template-columns: 32px 1fr 28px; }
+  .store-link { padding-inline: 12px; gap: 9px; grid-template-columns: 32px minmax(0, 1fr) 28px; }
   .store-link__pin { width: 32px; height: 32px; }
   .store-link__arrow { width: 28px; height: 28px; }
   .store-link__name { font-size: 26px; }
+  .store-link__action { font-size: 8px; letter-spacing: 0.07em; }
   .signature > span { display: none; }
 }
 
