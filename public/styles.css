@@ -174,7 +174,7 @@ h1 em { color: var(--gold); font-weight: 400; }
 .store-link__pin { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid #21452e33; border-radius: 50%; background: #fff8e42e; }
 .store-link__pin svg { width: 23px; height: 23px; stroke-width: 1.6; }
 .store-link__copy { display: grid; gap: 7px; }
-.store-link__name { color: #0b3326; font: 400 33px / 1 var(--serif); letter-spacing: -0.015em; }
+.store-link__name { color: #0b3326; font: 400 27px / 1.15 var(--serif); letter-spacing: -0.015em; }
 .store-link__action { font-size: 10px; line-height: 1.6; font-weight: 500; letter-spacing: 0.16em; }
 .store-link__arrow { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #082a20; border-radius: 8px; color: #f8dfb7; background: #123c2e; box-shadow: inset 0 1px 0 #ffffff1c; }
 .store-link__arrow svg { width: 20px; height: 20px; stroke-width: 1.7; transition: transform 180ms ease; }
@@ -255,7 +255,7 @@ html[data-intro="pending"] .intro {
   .store-link { grid-template-columns: 38px minmax(0, 1fr) 36px; gap: 12px; padding: 18px 16px; min-height: 96px; }
   .store-link__pin { width: 38px; height: 38px; }
   .store-link__pin svg { width: 19px; height: 19px; }
-  .store-link__name { font-size: 29px; }
+  .store-link__name { font-size: 23px; }
   .store-link__action { font-size: 9px; letter-spacing: 0.1em; }
   .store-link__arrow { width: 36px; height: 36px; }
   .store-link__arrow svg { width: 18px; height: 18px; }
@@ -277,7 +277,7 @@ html[data-intro="pending"] .intro {
   .store-link { padding-inline: 12px; gap: 9px; grid-template-columns: 32px minmax(0, 1fr) 28px; }
   .store-link__pin { width: 32px; height: 32px; }
   .store-link__arrow { width: 28px; height: 28px; }
-  .store-link__name { font-size: 26px; }
+  .store-link__name { font-size: 20px; }
   .store-link__action { font-size: 8px; letter-spacing: 0.07em; }
   .signature > span { display: none; }
 }
